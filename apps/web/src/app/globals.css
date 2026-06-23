@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-5 py-2.5 bg-coral-500 hover:bg-coral-600 text-white rounded-xl font-bold shadow-lg shadow-coral-500/30 transition;
+  }
+  .btn-secondary {
+    @apply px-5 py-2.5 bg-ink-950 hover:bg-ink-900 text-cream rounded-xl font-bold transition;
+  }
+  .card {
+    @apply bg-white rounded-2xl border border-ink-100 p-6;
+  }
+}
