@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nest start --watch",
-    "build": "prisma generate --schema=../../path/to/your/schema.prisma && nest build",
+    "build": "prisma generate && nest build",
     "start": "node dist/main",
     "start:prod": "node dist/main",
     "prisma:generate": "prisma generate",
