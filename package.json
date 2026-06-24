@@ -26,5 +26,8 @@
   "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@codegenie/serverless-express": "^5.0.0"
   }
 }
