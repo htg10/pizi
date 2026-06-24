@@ -2,14 +2,9 @@ import { NestFactory } from "@nestjs/core";
 import { ValidationPipe, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
-import { ExpressAdapter } from "@nestjs/platform-express";
-import express from "express";
 import { AppModule } from "./app.module";
 import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
 import { TransformInterceptor } from "./common/interceptors/transform.interceptor";
-
-const expressApp = express();
-const adapter = new ExpressAdapter(expressApp);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -64,5 +59,3 @@ async function bootstrap() {
 }
 
 bootstrap();
-
-module.exports = expressApp;
