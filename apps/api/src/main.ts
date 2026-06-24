@@ -1,15 +1,23 @@
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
+import { ExpressAdapter } from "@nestjs/platform-express";
+import express from "express";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { AppModule } from "./app.module";
 import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
 import { TransformInterceptor } from "./common/interceptors/transform.interceptor";
 
+const server = express();
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
-    logger: ["error", "warn", "log", "debug"],
-  });
+  const app = await NestFactory.create(
+    AppModule,
+    //   {
+    //   logger: ["error", "warn", "log", "debug"],
+    // }
+    new ExpressAdapter(server),
+  );
 
   const config = app.get(ConfigService);
   const port = config.get<number>("PORT", 4000);
@@ -53,9 +61,11 @@ async function bootstrap() {
     SwaggerModule.setup("docs", app, document);
   }
 
-  await app.listen(port);
+  await app.init(port);
   Logger.log(`🚀 PIZI API running on http://localhost:${port}`, "Bootstrap");
   Logger.log(`📚 Swagger docs at http://localhost:${port}/docs`, "Bootstrap");
 }
 
 bootstrap();
+
+export default server;
