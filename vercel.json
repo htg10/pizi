@@ -1,0 +1,15 @@
+{
+  "buildCommand": "pnpm --filter @pizi/api build",
+  "installCommand": "pnpm install",
+  "functions": {
+    "apps/api/src/main.ts": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/v1/(.*)",
+      "destination": "/apps/api/src/main.ts"
+    }
+  ]
+}
