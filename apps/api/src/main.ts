@@ -8,7 +8,7 @@ import { AppModule } from "./app.module";
 import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
 import { TransformInterceptor } from "./common/interceptors/transform.interceptor";
 
-const server = express();
+const server: express.Express = express();
 
 async function bootstrap() {
   const app = await NestFactory.create(
@@ -61,7 +61,7 @@ async function bootstrap() {
     SwaggerModule.setup("docs", app, document);
   }
 
-  await app.init(port);
+  await app.init();
   Logger.log(`🚀 PIZI API running on http://localhost:${port}`, "Bootstrap");
   Logger.log(`📚 Swagger docs at http://localhost:${port}/docs`, "Bootstrap");
 }
