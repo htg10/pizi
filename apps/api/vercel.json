@@ -16,7 +16,7 @@
 {
   "version": 2,
   "buildCommand": "pnpm --filter @pizi/api build",
-  "outputDirectory": "dist",
+  // "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/(.*)",
