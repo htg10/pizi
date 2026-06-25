@@ -17,7 +17,8 @@
     "db:studio": "cd apps/api && pnpm prisma studio",
     "db:seed": "cd apps/api && pnpm prisma db seed",
     "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "docker:down": "docker-compose down",
+    "postinstall": "pnpm --filter @pizi/api exec prisma generate"
   },
   "devDependencies": {
     "turbo": "^1.13.0",
