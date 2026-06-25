@@ -1,26 +1,15 @@
-// {
-//   "version": 2,
-//   "functions": {
-//     "api/index.ts": {
-//       "runtime": "@vercel/node"
-//     }
-//   },
-//   "routes": [
-//     {
-//       "src": "/(.*)",
-//       "dest": "api/index.ts"
-//     }
-//   ]
-// }
-
 {
   "version": 2,
-  "buildCommand": "pnpm --filter @pizi/api build",
-  // "outputDirectory": "dist",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "src": "api/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/index.ts"
     }
   ]
 }
