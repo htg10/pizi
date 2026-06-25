@@ -1,7 +1,0 @@
-{
-  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && pnpm turbo run build --filter=@pizi/web",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "installCommand": "echo 'Skipping (installed in build)'",
-  "regions": ["bom1"]
-}
