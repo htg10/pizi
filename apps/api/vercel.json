@@ -1,6 +1,5 @@
-{
-  "version": 2
-}
+// {
+//   "version": 2,
 //   "functions": {
 //     "api/index.ts": {
 //       "runtime": "@vercel/node"
@@ -13,3 +12,15 @@
 //     }
 //   ]
 // }
+
+{
+  "version": 2,
+  "buildCommand": "pnpm --filter @pizi/api build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
+}
